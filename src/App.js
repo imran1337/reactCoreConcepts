@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import "./App.css";
 
 const products = [
@@ -17,6 +18,7 @@ function App() {
   const lo = true;
   return (
     <div>
+      <Counter></Counter>
       <h1 style={style}>My Heading {myName}</h1>
       <h3 style={{ color: "blue", fontSize: "60px", textAlign: "center" }}>
         Hello
@@ -64,4 +66,18 @@ function Person(props) {
     </div>
   );
 }
+
+const Counter = () => {
+  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <button onClick={() => setCount(count + 1)}>increase</button>
+      {count > 0 && (
+        <button onClick={() => setCount(count - 1)}>decrease</button>
+      )}
+    </div>
+  );
+};
+
 export default App;
